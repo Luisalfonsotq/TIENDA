@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candy and Gummies Shop</title>
+
+  <!-- Style Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+  <!-- Nuestro CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Style Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kablammo&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+ 
+  <div class="container col-6"> <!-- container -->
+    <nav class="navbar navbar-dark great-vibes-regular row mt-2 justify-content-center barra">
+      <h1>Candy |&| Gummies</h1>
+    </nav>
+
+    <div class="row mt-2 justify-content-center">
+      <div class="col-12">
+        <div class="card tarjeta">
+          <h5 class="card-header montserrat"> Order here!</h5>
+          <div class="card-body">
+
+            <div class="mb-2">
+              <label for="nombre" class="form-label subtitulos">Client Name</label>
+              <input id="nombre" type="text" class="form-control" placeholder="Jane Doe" />
+            </div>
+
+            <div class="mb-2">
+              <label for="tipo" class="form-label subtitulos">Type of Candy or Gummies</label>
+              <select id="tipo" class="form-select" aria-label="Select a product">
+                <option selected disabled>Select a Poduct</option>
+                <option value="Heart of Fruits">Heart of Fruits</option>
+                <option value="Super Bowl of Gummies">Super Bowl of Gummies</option>
+                <option value="Party of Gummies">Party of Gummies</option>
+                <option value="Bottle of mixed candy">Bottle of mixed candy</option>
+              </select>
+            </div>
+
+            <div class="mb-2">
+              <label for="cantidad" class="form-label subtitulos">Amount</label>
+              <input id="cantidad" type="number" class="form-control" placeholder="10" min="1" />
+            </div>
+
+            <div class="row filabotones justify-content-center">
+              <div class="col-12 botones" id="botones">
+                <button type="button" onclick="guardar()" class="individual btn btn-outline-success">Add to My Shopping Cart</button>
+                <button type="button" onclick="pintar()" class="individual btn btn-outline-success"
+                  data-bs-toggle="modal" data-bs-target="#exampleModal">Show My Shopping Cart</button>
+                <button type="button" onclick="catalogo()" class="individual btn btn-outline-success"
+                  data-bs-toggle="modal1" data-bs-target="#exampleModal1">Catalog</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Carrito -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-md" style="max-width: 900 px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">My Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" id="tabla">
+            <!-- Aquí se van a mostrar los productos añadidos al carrito -->
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Confirmación de Borrado -->
+    <div class="modal fade" id="modalborrrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="max-width: 800 px">
+        <div class="modal-content">
+          <div class="modal-header borrado">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h3>Are you sure you want to remove this product from the cart?</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" onclick="borrar()" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notificación de Acción -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <i class="bi bi-bookmark-check"></i>
+          <strong class="me-auto">Operation Result</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="mensaje">Product Added to Cart Successfully.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Button trigger modal catátalogo 
+/*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>-->
+
+  <!-- Modal catálogo -->
+  <div class="modal fade" id="exampleModalcatalogo" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Catalog</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row mt-2 justify-content-center"> <!-- Cuerpo Catálago -->
+          <h2 class="fs-5"> Super Bowl of Gummies </h2>
+          <p> Do you want to see it in full Screen? <a
+              href="https://pixabay.com/es/photos/gomitas-dulce-dulces-cuenco-6169916/" target="_blank"
+              data-bs-toggle="tooltip" title="Tooltip"> Click here!</a></p>
+          <image alt="undefined undefined"
+            src="https://cdn.pixabay.com/photo/2021/04/16/06/39/wine-gum-6182721_1280.jpg" width="30%">
+          </image>
+          <div class="product-card__subtitle" id="superBowlGummies" role="link"> Awesome super bawl of gummies
+          </div>
+          <div class="product-card__price" role="link"> $ 19.99
+          </div>
+
+          <hr>
+
+          <h2 class="fs-5">Hearts of Fruits</h2>
+          <p> Do you want to see it in full Screen? <a
+              href="https://co.pinterest.com/pin/328973947791195453/visual-search/?x=16&y=16&w=532&h=814&cropSource=6&surfaceType=flashlight"
+              target="_blank" data-bs-toggle="tooltip" title="Tooltip"> Click here!</a></p>
+          <image alt="undefined undefined"
+            src="https://i.pinimg.com/originals/74/15/06/741506d57578395ee9f120e5da643134.jpg" width="30%"></image>
+          <div class="product-card__subtitle" id="superBowlGummies" role="link"> Superb bottle of fruit-flavored gummies
+          </div>
+          <div class="product-card__price" role="link"> $ 29.99
+          </div>
+
+          <hr>
+
+            <h2 class="fs-5">Party of Gummies</h2>
+          <p> Do you want to see it in full Screen? <a
+              href="https://pixabay.com/es/illustrations/ai-generado-ositos-de-goma-dulces-8737094/"
+              target="_blank" data-bs-toggle="tooltip" title="Tooltip"> Click here!</a></p>
+          <image alt="undefined undefined"
+            src="https://cdn.pixabay.com/photo/2024/05/03/13/32/ai-generated-8737094_1280.jpg" width="30%"></image>
+          <div class="product-card__subtitle" id="superBowlGummies" role="link"> The Party of Gummies contains a huge amount of delicious Gummies
+          </div>
+          <div class="product-card__price" role="link"> $ 49.99
+          </div>
+
+          <hr>
+
+          <h2 class="fs-5">Bottle of mixed candy</h2>
+          <p> Do you want to see it in full Screen? <a
+              href="https://www.istockphoto.com/es/foto/multicolored-lollipops-golosinas-y-goma-de-mascar-gm522001686-91513193"
+              target="_blank" data-bs-toggle="tooltip" title="Tooltip"> Click here!</a></p>
+          <image alt="undefined undefined"
+            src="https://media.istockphoto.com/id/522001686/es/foto/multicolored-lollipops-golosinas-y-goma-de-mascar.jpg?s=2048x2048&w=is&k=20&c=XrChY4nr4orrTDvTKyWPWjOtz7vkGs0LfF3_4l6VhbI=" width="30%"></image>
+          <div class="product-card__subtitle" id="superBowlGummies" role="link"> The Bottle contains a big amount of delicious candys
+          </div>
+          <div class="product-card__price" role="link"> $ 39.99
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Código Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Nuestro código -->
+  <script src="codigo.js"></script>
+</body>
+
+</html>

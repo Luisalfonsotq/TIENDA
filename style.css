@@ -1,0 +1,102 @@
+.barra {
+  border-radius: 50%;
+  height: 200 px;
+  width: 500 px;
+  color: #ffffff; /* Blanco para el texto */
+  text-align: center; /* Centrar título */
+  padding-top: 30 px; /* Alineación del título */
+  background-color: #f37ee7; /* Rosa pastel suave */
+  font-size: 24 px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif; /* Tipografía moderna */
+}
+
+/*Letra Títulos principal*/
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight:600;
+  font-style: normal;
+}
+
+
+.tarjeta {
+  background-color: #aed6f1; /* Fondo blanco para destacar el contenido */
+  border-radius: 10 px; /* Bordes redondeados */
+  box-shadow: 0 4 px 8 px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto flotante */
+  padding: 20 px;
+  margin-top: 20 px;
+  transition: transform 0.3 s ease, box-shadow 0.3 s ease; /* Efecto de transición */
+}
+
+.tarjeta:hover {
+  transform: translateY(-5 px); /* Efecto al pasar el ratón */
+  box-shadow: 0 6 px 12 px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Estilos para los subtítulos */
+.subtitulos {
+  font-weight:normal;
+  font-size: 18 px;
+  color: black;
+}
+
+/*Título tarjeta*/
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-weight:normal;
+  font-size: 22 px;
+  color: black;
+  text-align: center;
+}
+
+/* Estilos para los botones dentro de las tarjetas */
+.filabotones {
+  background-color: white;
+  border-radius: 10 px;
+  margin-top: 20 px;
+  margin-bottom: 20 px;
+  margin-left: 20 px;
+  margin-right: 20 px;
+  padding: 20 px;
+}
+
+.botones {
+  margin-top: 2 px;
+  margin-bottom: 2 px;
+}
+
+/* Estilos de los botones individuales */
+.individual {
+  margin-right: 17 px;
+  color: white;
+  font-weight: bold;
+  background-color: #f37ee7; /* Verde pastel para los botones */
+  padding: 10 px 20 px;
+  border: none;
+  border-radius: 5 px;
+  transition: background-color 0.3 s ease, transform 0.3 s ease;
+}
+
+/* Efectos de hover para los botones */
+.individual:hover {
+  background-color: #B72FEB; /* Verde claro cuando se pasa el ratón */
+  cursor: pointer;
+  transform: translateY(-2 px); /* Efecto de desplazamiento */
+}
+
+.borrado {
+  background-color: #f79c42; /* Naranja pastel para el botón de eliminación */
+  color: white; /* Asegurar que el texto sea visible */
+}
+
+/* Alineación para los checkboxes */
+.margencheck {
+  padding-left: 25 px;
+  padding-top: 4 px; /* Ajuste del padding-top para una mejor alineación */
+}
+
+/*Catálogo*/
+
+.product-card__price{
+  font-weight: bold;
+}
