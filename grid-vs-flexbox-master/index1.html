@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Perfil - Administrador</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Agrega tu archivo CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar {
+            float: left;
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            height: 100%;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .content {
+            float: left;
+            width: calc(100% - 250px);
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            clear: both;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Banner con Menú Desplegable</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .banner {
+                background-color: #007bff;
+                color: white;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .menu {
+                position: relative;
+                display: inline-block;
+            }
+            .menu-button {
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: 16px;
+                padding: 10px;
+                cursor: pointer;
+            }
+            .menu-button:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            .dropdown {
+                display: none;
+                position: absolute;
+                background-color: white;
+                color: black;
+                min-width: 160px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                border-radius: 4px;
+            }
+            .dropdown a {
+                color: black;
+                padding: 10px 15px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown a:hover {
+                background-color: #ddd;
+            }
+            .menu:hover .dropdown {
+                display: block;
+            }
+            .dropdown-submenu {
+                position: relative;
+            }
+            .dropdown-submenu .dropdown {
+                top: 0;
+                left: 100%;
+                margin-left: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            <h1>Talentos Web</h1>
+            <div class="menu">
+                <button class="menu-button">Nosotros</button>
+                <div class="dropdown">
+                    <div class="dropdown-submenu">
+                        <a href="#">Cultura</a>
+                        <div class="dropdown">
+                            <a href="#">Arte</a>
+                            <a href="#">Canto</a>
+                            <a href="#">Danza</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-submenu">
+                        <a href="#">Deporte</a>
+                        <div class="dropdown">
+                            <a href="#">Fútbol</a>
+                            <a href="#">Voleibol</a>
+                            <a href="#">Baloncesto</a>
+                            <a href="#">Tenis de Mesa</a>
+                            <a href="#">Ajedrez</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
